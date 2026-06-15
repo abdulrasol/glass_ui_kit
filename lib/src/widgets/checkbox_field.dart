@@ -4,11 +4,20 @@ import '../theme/glass_theme_tokens.dart';
 import 'glass_container.dart';
 import 'glass_surface_variant.dart';
 
+/// Glass-styled checkbox with label inside a glass container.
 class CheckboxField extends StatefulWidget {
+  /// Text displayed next to the checkbox.
   final String label;
+
+  /// Initial checked state of the checkbox.
   final bool initialValue;
+
+  /// Callback invoked when the checked state changes.
   final ValueChanged<bool> onChanged;
 
+  /// Creates a [CheckboxField] inside a glass container.
+  ///
+  /// [label] and [onChanged] are required. [initialValue] defaults to `false`.
   const CheckboxField({
     super.key,
     required this.label,

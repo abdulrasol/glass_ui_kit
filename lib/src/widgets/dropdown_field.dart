@@ -3,21 +3,41 @@ import '../theme/glass_theme_tokens.dart';
 import 'glass_container.dart';
 import 'glass_surface_variant.dart';
 
+/// Typed value-label pair for dropdown items.
 class DropdownFieldItem<T> {
+  /// The value this item represents.
   final T value;
+
+  /// The human-readable label shown in the dropdown menu.
   final String label;
 
+  /// Creates a constant [DropdownFieldItem] with the given [value] and [label].
   const DropdownFieldItem({required this.value, required this.label});
 }
 
+/// Glass-styled dropdown selector with label and optional icon.
 class DropdownField<T> extends StatefulWidget {
+  /// Text displayed above the dropdown.
   final String label;
+
+  /// Currently selected value, or `null` if nothing is selected.
   final T? value;
+
+  /// Placeholder text shown when no item is selected.
   final String? hintText;
+
+  /// List of selectable [DropdownFieldItem] entries.
   final List<DropdownFieldItem<T>> items;
+
+  /// Callback invoked when the user selects a new value.
   final ValueChanged<T?> onChanged;
+
+  /// Leading icon displayed inside the glass container.
   final IconData? icon;
 
+  /// Creates a [DropdownField] wrapped in a glass surface container.
+  ///
+  /// [label], [value], [items], and [onChanged] are required.
   const DropdownField({
     super.key,
     required this.label,

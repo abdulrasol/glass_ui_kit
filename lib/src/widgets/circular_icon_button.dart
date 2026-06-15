@@ -3,13 +3,28 @@ import '../theme/glass_theme_tokens.dart';
 import 'glass_container.dart';
 import 'glass_surface_variant.dart';
 
+/// Circular glass button for icon actions.
+/// Wraps a [GlassContainer] with [GlassSurfaceVariant.circular].
 class CircularIconButton extends StatefulWidget {
+  /// The icon to display inside the button.
   final IconData icon;
+
+  /// Callback invoked when the button is tapped.
   final VoidCallback? onClick;
+
+  /// Optional custom background color for the button.
   final Color? backgroundColor;
+
+  /// Optional custom border radius; defaults to a circular shape.
   final double? borderRadius;
+
+  /// Optional custom color for the icon.
   final Color? iconColor;
+
+  /// Whether the button is interactive.
   final bool enabled;
+
+  /// Optional diameter of the circular button; defaults to 44.
   final double? size;
 
   const CircularIconButton({

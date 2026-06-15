@@ -4,11 +4,20 @@ import '../theme/glass_theme_tokens.dart';
 import 'glass_container.dart';
 import 'glass_surface_variant.dart';
 
+/// Glass-styled time picker trigger. Opens a [showTimePicker] dialog on tap.
 class TimePickerField extends StatefulWidget {
+  /// Text displayed above the time selector.
   final String label;
+
+  /// Callback invoked when the user picks a new time.
   final ValueChanged<TimeOfDay?> onTimeSelected;
+
+  /// Pre-selected time shown when the field first appears.
   final TimeOfDay? initialTime;
 
+  /// Creates a [TimePickerField] that opens the platform time picker on tap.
+  ///
+  /// [label] and [onTimeSelected] are required.
   const TimePickerField({
     super.key,
     required this.label,

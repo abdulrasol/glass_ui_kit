@@ -2,15 +2,39 @@ import 'package:flutter/material.dart';
 import 'glass_container.dart';
 import 'glass_surface_variant.dart';
 
+/// A [GlassContainer] that continuously pulses with a subtle scale animation
+/// (breathing effect).
 class AnimatedGlassContainer extends StatefulWidget {
+  /// Optional child widget rendered inside the animated glass surface.
   final Widget? child;
+
+  /// Fixed width of the container. Defaults to intrinsic sizing if `null`.
   final double? width;
+
+  /// Fixed height of the container. Defaults to intrinsic sizing if `null`.
   final double? height;
+
+  /// Visual variant controlling blur, gradient, and border intensity.
   final GlassSurfaceVariant variant;
+
+  /// Inner padding around the [child].
   final EdgeInsetsGeometry? padding;
+
+  /// Corner radius applied to the clipped shape and decoration.
   final double? borderRadius;
+
+  /// Duration of one full scale-in ↔ scale-out cycle. Defaults to 8 seconds.
   final Duration animationDuration;
 
+  /// Creates an animated glass container that continuously pulses.
+  ///
+  /// * [child] – optional content placed inside the glass surface.
+  /// * [width] – fixed container width; intrinsic when `null`.
+  /// * [height] – fixed container height; intrinsic when `null`.
+  /// * [variant] – look-and-feel preset; defaults to [GlassSurfaceVariant.primary].
+  /// * [padding] – inner spacing around [child].
+  /// * [borderRadius] – rounded corner radius override.
+  /// * [animationDuration] – length of one breathing cycle; defaults to 8 s.
   const AnimatedGlassContainer({
     super.key,
     this.child,

@@ -1,33 +1,89 @@
 import 'package:flutter/material.dart';
 
+/// Theme extension carrying all glassmorphism design tokens.
+///
+/// All glass UI kit widgets read colors and blur values from this extension
+/// via [of]. Add it to `ThemeData.extensions` in both light and dark themes.
 class GlassThemeTokens extends ThemeExtension<GlassThemeTokens> {
+  /// The seed / accent colour that drives the palette.
   final Color primaryColor;
+
+  /// Gradient stop at the top of the background.
   final Color backgroundStart;
+
+  /// Gradient stop in the middle of the background.
   final Color backgroundMiddle;
+
+  /// Gradient stop at the bottom of the background.
   final Color backgroundEnd;
+
+  /// Primary radial glow overlaid on the background.
   final Color backgroundGlowPrimary;
+
+  /// Secondary radial glow overlaid on the background.
   final Color backgroundGlowSecondary;
+
+  /// Main text / icon colour.
   final Color contentPrimary;
+
+  /// Secondary / hint text colour.
   final Color contentSecondary;
+
+  /// Colour used for text on tinted surfaces.
   final Color contentInverse;
+
+  /// Background tint for dropdown menus.
   final Color dropdownBackgroundColor;
+
+  /// Colour applied to drop shadows.
   final Color shadowColor;
+
+  /// Semi-transparent outline used on glass borders.
   final Color subtleOutlineColor;
+
+  /// Darkest primary-tinted glass surface.
   final Color primarySurface1;
+
+  /// Mid primary-tinted glass surface.
   final Color primarySurface2;
+
+  /// Lightest primary-tinted glass surface.
   final Color primarySurface3;
+
+  /// Darkest secondary-tinted glass surface.
   final Color secondarySurface1;
+
+  /// Mid secondary-tinted glass surface.
   final Color secondarySurface2;
+
+  /// Lightest secondary-tinted glass surface.
   final Color secondarySurface3;
+
+  /// Outer surface of circular glass widgets.
   final Color circularSurface1;
+
+  /// Inner surface of circular glass widgets.
   final Color circularSurface2;
+
+  /// Primary surface for the app-bar glass backdrop.
   final Color appBarSurface1;
+
+  /// Secondary surface for the app-bar glass backdrop.
   final Color appBarSurface2;
+
+  /// Blur sigma applied to primary glass surfaces.
   final double primaryBlurSigma;
+
+  /// Blur sigma applied to secondary glass surfaces.
   final double secondaryBlurSigma;
+
+  /// Blur sigma applied to circular glass widgets.
   final double circularBlurSigma;
+
+  /// Blur sigma applied to the app-bar backdrop.
   final double appBarBlurSigma;
 
+  /// Creates a fully-specified token set.
   const GlassThemeTokens({
     required this.primaryColor,
     required this.backgroundStart,
@@ -57,10 +113,12 @@ class GlassThemeTokens extends ThemeExtension<GlassThemeTokens> {
     required this.appBarBlurSigma,
   });
 
+  /// Retrieves the nearest [GlassThemeTokens] from the widget tree.
   static GlassThemeTokens of(BuildContext context) {
     return Theme.of(context).extension<GlassThemeTokens>()!;
   }
 
+  /// Factory providing the original green glass palette.
   factory GlassThemeTokens.greenTheme({required Brightness brightness}) {
     final isDark = brightness == Brightness.dark;
     return GlassThemeTokens(
@@ -93,6 +151,8 @@ class GlassThemeTokens extends ThemeExtension<GlassThemeTokens> {
     );
   }
 
+  /// Factory generating a full glass palette from a single seed colour using
+  /// HSL rotation.
   factory GlassThemeTokens.fromSeed(Color seed, {required Brightness brightness}) {
     final isDark = brightness == Brightness.dark;
     final hsl = HSLColor.fromColor(seed);
@@ -143,6 +203,7 @@ class GlassThemeTokens extends ThemeExtension<GlassThemeTokens> {
     );
   }
 
+  /// Returns a copy of this tokens set with the given fields replaced.
   @override
   GlassThemeTokens copyWith({
     Color? primaryColor,
@@ -202,6 +263,7 @@ class GlassThemeTokens extends ThemeExtension<GlassThemeTokens> {
     );
   }
 
+  /// Linearly interpolates between this and [other] at time [t].
   @override
   GlassThemeTokens lerp(covariant GlassThemeTokens? other, double t) {
     if (other is! GlassThemeTokens) return this;

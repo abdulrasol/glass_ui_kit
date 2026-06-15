@@ -5,20 +5,52 @@ import 'glass_container.dart';
 import 'glass_pulsing_indicator.dart';
 import 'glass_surface_variant.dart';
 
-enum GlassButtonVariant { primary, secondary }
+/// Visual style for a [Button]. Primary uses bold glass, secondary uses subtle glass.
+enum GlassButtonVariant {
+  /// Bold surface for main call-to-action buttons.
+  primary,
 
+  /// Subtle surface for secondary actions.
+  secondary,
+}
+
+/// Press-animated glass button with loading state support.
+/// Automatically resolves text color from the current [GlassThemeTokens].
 class Button extends StatefulWidget {
+  /// The text displayed on the button.
   final String label;
+
+  /// Optional icon displayed before the label.
   final IconData? icon;
+
+  /// Optional semantic hint text for accessibility.
   final String? hintText;
+
+  /// Callback invoked when the button is tapped.
   final VoidCallback? onClick;
+
+  /// Whether the button is in a loading state.
   final bool? isLoading;
+
+  /// Optional custom background color for the button.
   final Color? backgroundColor;
+
+  /// Optional custom border radius for the button shape.
   final double? borderRadius;
+
+  /// Optional custom color for the button text and icon.
   final Color? textColor;
+
+  /// Whether the button expands to fill available width.
   final bool isFullWidth;
+
+  /// The visual variant determining the glass surface style.
   final GlassButtonVariant? variant;
+
+  /// Whether the button is interactive.
   final bool enabled;
+
+  /// Optional widget displayed in place of the label when loading.
   final Widget? loadingWidget;
 
   const Button({

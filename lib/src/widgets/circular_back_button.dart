@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'circular_icon_button.dart';
 
+/// RTL-aware back navigation button.
+/// Defaults to [Navigator.of(context).pop()].
+/// Override with [onBack] for custom behavior.
 class CircularBackButton extends StatelessWidget {
+  /// Optional callback for custom back navigation behavior.
+  /// When null, defaults to [Navigator.of(context).pop()].
   final VoidCallback? onBack;
 
   const CircularBackButton({this.onBack, super.key});

@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 import '../theme/glass_theme_tokens.dart';
 
+/// Typed value-label pair for segmented chips.
 class GlassSegmentedChipsItem<T> {
+  /// The value this chip represents.
   final T value;
+
+  /// The human-readable label shown on the chip.
   final String label;
 
+  /// Creates a constant [GlassSegmentedChipsItem] with the given [value] and [label].
   const GlassSegmentedChipsItem({required this.value, required this.label});
 }
 
+/// Horizontal segmented chip selector with animated selected state.
 class GlassSegmentedChipsPicker<T> extends StatelessWidget {
+  /// Text displayed above the chip row.
   final String label;
+
+  /// Currently selected value.
   final T value;
+
+  /// List of selectable [GlassSegmentedChipsItem] entries.
   final List<GlassSegmentedChipsItem<T>> items;
+
+  /// Callback invoked when the user selects a new chip value.
   final ValueChanged<T> onChanged;
 
+  /// Creates a [GlassSegmentedChipsPicker] displaying a row of selectable chips.
+  ///
+  /// [label], [value], [items], and [onChanged] are required.
   const GlassSegmentedChipsPicker({
     super.key,
     required this.label,

@@ -3,16 +3,35 @@ import '../theme/glass_theme_tokens.dart';
 import 'glass_container.dart';
 import 'glass_surface_variant.dart';
 
+/// Numeric stepper input with +/- buttons inside a glass container.
 class NumberInputFieldWithButtons extends StatefulWidget {
+  /// Text displayed above the numeric input.
   final String label;
+
+  /// Controller for reading and editing the numeric text value.
   final TextEditingController controller;
+
+  /// Placeholder text shown when the field is empty.
   final String hintText;
+
+  /// Leading icon displayed next to the input.
   final IconData icon;
+
+  /// Minimum allowed numeric value.
   final int minValue;
+
+  /// Maximum allowed numeric value.
   final int maxValue;
+
+  /// Amount to increment or decrement per button press.
   final int step;
+
+  /// Optional units label displayed as a suffix inside the field.
   final String? unitSuffix;
 
+  /// Creates a [NumberInputFieldWithButtons] with increment/decrement controls.
+  ///
+  /// [label], [controller], [hintText], and [icon] are required.
   const NumberInputFieldWithButtons({
     super.key,
     required this.label,

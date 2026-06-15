@@ -1,14 +1,36 @@
 import 'package:flutter/material.dart';
 import '../theme/glass_theme_tokens.dart';
 
+/// A network image viewer that displays a shimmer glass gradient during loading
+/// and gracefully transitions when done.
 class PulsingGlassImage extends StatefulWidget {
+  /// URL of the network image to display.
   final String imageUrl;
+
+  /// Fixed width of the image area. Defaults to intrinsic sizing if `null`.
   final double? width;
+
+  /// Fixed height of the image area. Defaults to intrinsic sizing if `null`.
   final double? height;
+
+  /// Corner radius applied to the clipped shape. Defaults to 16 px.
   final BorderRadius? borderRadius;
+
+  /// How the image should be inscribed into the layout bounds.
   final BoxFit fit;
+
+  /// Widget displayed when the URL is empty, not HTTP, or the image fails to
+  /// load. Falls back to a placeholder icon when `null`.
   final Widget? fallbackWidget;
 
+  /// Creates a pulsing glass image viewer.
+  ///
+  /// * [imageUrl] – HTTP(S) URL of the image to load.
+  /// * [width] – fixed container width; intrinsic when `null`.
+  /// * [height] – fixed container height; intrinsic when `null`.
+  /// * [borderRadius] – rounded corners; defaults to `BorderRadius.circular(16)`.
+  /// * [fit] – image fill mode; defaults to [BoxFit.cover].
+  /// * [fallbackWidget] – custom widget shown on error or invalid URL.
   const PulsingGlassImage({
     super.key,
     required this.imageUrl,

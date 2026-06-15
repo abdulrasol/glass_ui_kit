@@ -1,3 +1,22 @@
+/// A glassmorphism UI component library for Flutter with theme-driven design tokens.
+///
+/// Provides frosted-glass containers, buttons, form inputs, a full-page scaffold
+/// ([BaseWidget]), and a theme extension ([GlassThemeTokens]) that drives all colors
+/// and blur values. Zero external dependencies beyond Flutter.
+///
+/// Quick start:
+/// ```dart
+/// import 'package:glass_ui_kit/glass_ui_kit.dart';
+///
+/// MaterialApp(
+///   theme: ThemeData(
+///     useMaterial3: true,
+///     extensions: [GlassThemeTokens.greenTheme(brightness: Brightness.light)],
+///   ),
+/// )
+/// ```
+library;
+
 export 'src/theme/glass_defaults.dart';
 export 'src/theme/glass_theme_tokens.dart';
 export 'src/widgets/animated_glass_container.dart';

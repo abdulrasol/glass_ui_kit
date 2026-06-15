@@ -2,14 +2,31 @@ import 'package:flutter/material.dart';
 import '../theme/glass_theme_tokens.dart';
 import 'glass_surface_variant.dart';
 
+/// Immutable resolved visual style for a glass surface.
+/// Created by [GlassStyle.resolve] which reads from [GlassThemeTokens].
 class GlassStyle {
+  /// Gradient fill applied to the glass surface.
   final LinearGradient gradient;
+
+  /// Layered highlight colors that simulate light refraction.
   final List<Color> highlightColors;
+
+  /// Color of the glass border outline.
   final Color borderColor;
+
+  /// Box shadows cast by the glass element.
   final List<BoxShadow> shadows;
+
+  /// Internal padding within the glass surface.
   final EdgeInsetsGeometry padding;
+
+  /// Border radius in logical pixels.
   final double borderRadius;
+
+  /// Sigma value for the backdrop blur filter.
   final double blurSigma;
+
+  /// Width of the border stroke.
   final double borderWidth;
 
   const GlassStyle({
@@ -23,11 +40,20 @@ class GlassStyle {
     required this.borderWidth,
   });
 
+  /// Resolves a [GlassStyle] from the current theme tokens,
+  /// surface variant, and interactive state.
   static GlassStyle resolve(
     BuildContext context, {
+    /// The surface variant that determines the visual style.
     required GlassSurfaceVariant variant,
+
+    /// Whether the surface is in a pressed state.
     required bool isPressed,
+
+    /// Whether the surface is in a disabled state.
     required bool isDisabled,
+
+    /// Optional override for the border radius.
     double? borderRadius,
   }) {
     final tokens = GlassThemeTokens.of(context);

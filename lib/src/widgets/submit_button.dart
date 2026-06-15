@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'button.dart';
 
+/// Async button that auto-manages loading and error states.
+///
+/// Wraps [Button] with a loading indicator and error SnackBar.
 class SubmitButton extends StatefulWidget {
+  /// Text displayed on the button.
   final String label;
+
+  /// Async callback invoked when the button is pressed.
   final Future<void> Function() onPressed;
+
+  /// Optional background color for the button.
   final Color? backgroundColor;
+
+  /// Corner radius of the button shape.
   final double borderRadius;
 
+  /// Creates a [SubmitButton] that shows a loading indicator while [onPressed]
+  /// is in-flight and displays a SnackBar on error.
+  ///
+  /// [label] and [onPressed] are required.
   const SubmitButton({
     super.key,
     required this.label,

@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'glass_container.dart';
 import 'glass_surface_variant.dart';
 
+/// A pulsing glass loading indicator. Pure Flutter animation — no Lottie
+/// dependency.
 class GlassPulsingIndicator extends StatefulWidget {
+  /// Diameter (width and height) of the indicator square. Defaults to 96.
   final double size;
 
+  /// Creates a pulsing glass loading indicator.
+  ///
+  /// * [size] – width and height of the indicator; defaults to `96.0`.
   const GlassPulsingIndicator({super.key, this.size = 96.0});
 
   @override
