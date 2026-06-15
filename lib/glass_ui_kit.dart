@@ -30,6 +30,7 @@ export 'src/widgets/glass_app_bar.dart';
 export 'src/widgets/glass_container.dart';
 export 'src/widgets/glass_pulsing_indicator.dart';
 export 'src/widgets/glass_segmented_chips_picker.dart';
+export 'src/widgets/glass_stepper.dart';
 export 'src/widgets/glass_surface_variant.dart';
 export 'src/widgets/number_input_field_with_buttons.dart';
 export 'src/widgets/pulsing_glass_image.dart';

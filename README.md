@@ -183,6 +183,13 @@ extensions: [
 |---|---|
 | `GlassPulsingIndicator` | Pulsing glass loading spinner (no Lottie dependency) |
 
+### Navigation
+
+| Widget | Description |
+|---|---|
+| `GlassStepper` | Multi-step progress indicator with glass or flat styling |
+| `GlassStepperController` | Navigation controller for `GlassStepper` |
+
 ## BaseWidget API Reference
 
 ```dart
@@ -214,6 +221,62 @@ BaseWidget(
 ```
 
 > **Important:** Either `child` or `builder` must be provided — never both or neither. An `assert` enforces this at compile time.
+
+## GlassStepper — Multi-Step Progress
+
+A step indicator with two visual modes:
+
+### Glass mode (default)
+
+Step circles use `GlassContainer` surfaces — frosted-glass blur with gradient colors from `GlassThemeTokens`.
+
+```dart
+final controller = GlassStepperController(
+  steps: 4,
+  stepsList: const ['Cart', 'Address', 'Payment', 'Confirm'],
+);
+
+GlassStepper(
+  controller: controller,
+  style: GlassStepperStyle.glass,  // default
+)
+```
+
+### Flat mode
+
+Classic colored circles. Colors default from `GlassThemeTokens` but can be overridden via constructor params.
+
+```dart
+GlassStepper(
+  controller: controller,
+  style: GlassStepperStyle.flat,
+  activeColor: Colors.green,     // override
+  inactiveColor: Colors.grey,
+)
+```
+
+### Vertical direction
+
+```dart
+GlassStepper(
+  controller: controller,
+  direction: GlassStepperDirection.vertical,
+  stepHeight: 40,
+  horizontalPadding: 100,
+)
+```
+
+### Custom step builder
+
+```dart
+GlassStepper(
+  controller: controller,
+  stepBuilder: (index, isDone, isActive) => Icon(
+    isDone ? Icons.check_circle : Icons.radio_button_unchecked,
+    color: isDone ? Colors.green : Colors.grey,
+  ),
+)
+```
 
 ## GlassContainer Surface Variants
 
@@ -256,6 +319,14 @@ Shared numeric constants used across widgets:
 | `GlassSurfaceVariant` (from mixins) | `GlassSurfaceVariant` (from package) |
 | `Button` (from buttons_mixin) | `Button` (from package) |
 | `AppLoadingWidget` (from loading_mixin) | `GlassPulsingIndicator` (no Lottie dep) |
+| `SimpleCheckoutStepper` (from simple_step_checkout) | `GlassStepper` (with `GlassStepperStyle.glass/flat`) |
+| `SimpleCheckoutStepperController` | `GlassStepperController` (same API) |
+| `SimpleCheckoutStepperDirection` | `GlassStepperDirection` |
+| `StepWidgetBuilder` | `StepperWidgetBuilder` |
+| `doneColor` | `activeColor` (in flat mode; glass mode uses `tokens.primaryColor`) |
+| `unDoneColor` | `inactiveColor` (in flat mode; glass mode uses `tokens.shadowColor`) |
+| `stepIndexColor` | `stepNumberColor` |
+| `hroizatalPadding` (typo) | `horizontalPadding` (fixed) |
 | `baseAppBar(...)` | `GlassAppBar.build(...)` |
 | `BaseWidget` with `Get.back()` | `BaseWidget` with `onBack:` or `Navigator.pop()` |
 | `ButtonsMixin` | — (removed — use `Button` directly) |

@@ -1,3 +1,13 @@
+## 0.1.1
+
+- **Added `GlassStepper`** — multi-step progress indicator with glass or flat styling. Integrated from `simple_step_checkout` package.
+- **Added `GlassStepperController`** — navigation controller for `GlassStepper` (same API as `SimpleCheckoutStepperController`).
+- **Added `GlassStepperStyle` enum** — `glass` (GlassContainer surfaces) or `flat` (colored circles with token defaults).
+- **Added `GlassStepperDirection` enum** — `horizontal` or `vertical`.
+- **Added `StepperWidgetBuilder` typedef** — replaces `StepWidgetBuilder`.
+- Renamed `doneColor` → `activeColor`, `unDoneColor` → `inactiveColor`, `stepIndexColor` → `stepNumberColor`.
+- Fixed `hroizatalPadding` typo → `horizontalPadding`.
+
 ## 0.1.0
 
 - Initial release.
