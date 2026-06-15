@@ -1,0 +1,1 @@
+enum GlassSurfaceVariant { primary, secondary, circular, appBar }
