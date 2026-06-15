@@ -16,14 +16,14 @@ class GlassExampleApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.light,
-        extensions: const [
+        extensions: [
           GlassThemeTokens.greenTheme(brightness: Brightness.light),
         ],
       ),
       darkTheme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
-        extensions: const [
+        extensions: [
           GlassThemeTokens.greenTheme(brightness: Brightness.dark),
         ],
       ),
